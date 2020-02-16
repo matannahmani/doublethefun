@@ -1,0 +1,24 @@
+<div class="navbar">
+  <span>Hello world</span>
+</div>
+<%= form_for :event,url: create_path do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :location %>
+    <%= f.text_field :location, class: 'form-control' %>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
+<div class="footer">
+  <span>FOOTER FOOTER</span>
+</div>
