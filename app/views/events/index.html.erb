@@ -5,10 +5,10 @@
   <img src="">
   <h1>Here is Image</h1>
 </div>
-<div class="cards">
+<div class="container">
   <% if !@events.nil? %>
     <% @events.each do |event|  %>
-      <div class="card">
+      <div class="card center">
         <img src="">
         <h2><%= event.name %></h2>
         <h3><%= event.team %><br><%= event.location %></h3>
