@@ -1,0 +1,33 @@
+body{
+  background-color: #3D5A6C;
+}
+h1{
+  font-weight: 500;
+  font-style: san-sarif;
+}
+.form-inputs{
+  background: #72A98F;
+  width: 300px;
+  padding: 40px;
+  display: block;
+  transform: translate(50%,50%);
+  text-align: center;
+}
+
+#email, #password, #submit{
+  display: block;
+  background: none;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #8DE969;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: white;
+  border-radius: 24px;
+  transition: 0.25s;
+}
+.login_form #email:focus,.login_form #password:focus{
+  border-color: #CBEF43;
+  width: 280px;
+}

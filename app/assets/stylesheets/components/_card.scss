@@ -1,12 +1,15 @@
 .card-trip {
+  position: relative;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 300px;
+  margin: 8px;
 }
 
 .card-trip > img {
-  height: 200px;
+background: rgb(255,255,255);
+background: linear-gradient(90deg, rgba(255,255,255,1) 1%, rgba(8,7,7,1) 1%, rgba(225,224,244,1) 66%, rgba(255,255,255,1) 70%, rgba(202,202,224,1) 77%, rgba(252,252,252,1) 87%, rgba(255,255,255,1) 96%);  height: 200px;
   width: 100%;
   object-fit: cover;
 }
@@ -37,4 +40,20 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+.cardbox {
+  margin-bottom: 40px;
+  margin-top: 80px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.card-trip i{
+  font-size: 24px;
+  color: black;
+  position: absolute;
+  right: 8px;
+  top: 8px;
 }
