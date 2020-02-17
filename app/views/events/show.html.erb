@@ -1,9 +1,8 @@
 <div class="navbar">
-  <span>Here is a Navbar</span>
+  <span><%= render "shared/navbar"%></span>
 </div>
 <div class="banner">
-  <img src="">
-  <h1>Here is Image</h1>
+  <img src="https://ak5.picdn.net/shutterstock/videos/4908395/thumb/7.jpg">
 </div>
   <% if !@event.nil? %>
       <div class="card">
@@ -17,5 +16,5 @@
       </div>
   <% end %>
 <div class="footer">
-  <p>This is footer</p>
+  <p><%= render 'shared/footer' %> </p>
 </div>

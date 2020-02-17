@@ -1,5 +1,5 @@
 <div class="navbar">
-  <span>Hello world</span>
+  <span><%= render "shared/navbar"%></span>
 </div>
 <%= form_for :event,url: create_path do |f| %>
   <div class="form-group">
@@ -31,5 +31,5 @@
 <% end %>
 
 <div class="footer">
-  <span>FOOTER FOOTER</span>
+  <span><%= render 'shared/footer' %> </span>
 </div>
