@@ -7,6 +7,8 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.4.1'
 gem 'redis'
+gem 'pundit'
+
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -29,3 +31,5 @@ group :development, :test do
 end
 
 gem "devise", "~> 4.7"
+
+gem "cloudinary", "~> 1.13"
