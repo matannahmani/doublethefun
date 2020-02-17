@@ -9,10 +9,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "Dashboard", "#", class: "nav-link" %>
+        <%= link_to "Dashboard", "/dashboard", class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "Add Event", "#", class: "nav-link" %>
+        <%= link_to "Add Event", "/events/new", class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>

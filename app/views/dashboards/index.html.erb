@@ -9,38 +9,43 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="hosted" role="tabpanel" aria-labelledby="home-tab">
-    <% @my_events.each do |event| %>
+ <!--    <% @my_events.each do |event| %>
     <%= event.name %>
       <% if policy(event).show? %>
         <%= link_to "Show", event_path(event) %>
       <% end %>
     <% end %>
-
-<div class="container center">
-  <% if !@events.nil? %>
-    <% @my_events.each do |event|  %>
-    <a href="<%= event_path(event) %>">
-      <div class="card-trip">
-        <% if event.photo.attached? %>
-          <%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %>
-        <% else %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <%end%>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= event.name %></h2>
-            <p><%= event.description[0..10] %></p>
+ -->
+  <div class="container">
+    <div class="cardbox">
+      <% if !@events.nil? %>
+        <% @my_events.each do |event|  %>
+        <a href="<%= event_path(event) %>">
+          <div class="card-trip">
+            <i class="fas fa-user-plus"></i>
+            <% if event.photo.attached? %>
+              <%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %>
+            <% else %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <%end%>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= event.name %></h2>
+                <p><%= event.description[0..10] %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= event.location %></h2>
+              <% if User.find(event.user_id).photo.attached? %>
+                <%= cl_image_tag User.find(event.user_id).photo.key, class: :"card-trip-user avatar-bordered" %>
+              <% else %>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <% end %>
+            </div>
           </div>
-          <h2 class="card-trip-pricing"><%= event.location %></h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-        </div>
-      </div>
-    </a>
-    <% end %>
-  <% else %>
-      <h3>You haven't hosted any events yet</h3>
-  <% end %>
-</div>
+        </a>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 
 </div>
   <div class="tab-pane fade" id="joined" role="tabpanel" aria-labelledby="profile-tab">
@@ -54,5 +59,36 @@
     <% else %>
       <h3>You haven't joined any events yet</h3>
     <% end %>
+
+  <div class="container">
+    <div class="cardbox">
+      <% if !@events.nil? %>
+        <% @my_attendances.each do |event|  %>
+        <a href="<%= event_path(event) %>">
+          <div class="card-trip">
+            <i class="fas fa-user-plus"></i>
+            <% if event.photo.attached? %>
+              <%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %>
+            <% else %>
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+            <%end%>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= event.name %></h2>
+                <p><%= event.description[0..10] %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= event.location %></h2>
+              <% if User.find(event.user_id).photo.attached? %>
+                <%= cl_image_tag User.find(event.user_id).photo.key, class: :"card-trip-user avatar-bordered" %>
+              <% else %>
+                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+              <% end %>
+            </div>
+          </div>
+        </a>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
   </div>
 </div>
