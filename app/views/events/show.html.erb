@@ -9,7 +9,9 @@
       <div class="card">
         <img src="">
         <h2><%= @event.name %></h2>
-        <h3><%= @event.team %><br><%= @event.location %></h3>
+        <h3><%= @event.team %></h3>
+        <h3><%= @event.description %></h3>
+        <h3><%= @event.location %></h3>
       <h3><%= link_to "delete", destroy_path(@event), method: :delete %></h3>
       <h3><%= link_to "update", edit_event_path(@event), method: :get %></h3>
       </div>
