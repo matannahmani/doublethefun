@@ -1,0 +1,13 @@
+<% @my_events.each do |event| %>
+  <%= event.name %>
+  <% if policy(event).show? %>
+    <%= link_to "Show", event_path(event) %>
+  <% end %>
+<% end %>
+<% !@my_attendances.nil? %>
+<% @my_attendances.each do |attendance| %>
+  <%= attendance %>
+  <% if policy(attendance).show? %>
+    <%= link_to "Show", attendance_path(attendance) %>
+  <% end %>
+<% end %>
