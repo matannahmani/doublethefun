@@ -1,33 +1,79 @@
-<div class="navbar">
-  <span>Here is a Navbar</span>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+  <% end %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Dashboard", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Add Event", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag event.photo.key, height: 200, width: 200, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+          <% else %>
+            <%= image_tag "https://source.unsplash.com/user/erondu/200x200", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Action", "#", class: "dropdown-item" %>
+          <%= link_to "Another action", "#", class: "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
-<div class="banner">
+
+<!-- <div class="banner">
   <img src="">
   <h1>Here is Image</h1>
-</div>
-<div class="container center">
-  <% if !@events.nil? %>
-    <% @events.each do |event|  %>
-    <a href="<%= event_path(event) %>">
-      <div class="card-trip">
-        <% if event.photo.attached? %>
-          <%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %>
-        <% else %>
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <%end%>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= event.name %></h2>
-            <p><%= event.description[0..10] %></p>
+</div> -->
+
+<div class="container">
+  <div class="cardbox">
+    <% if !@events.nil? %>
+      <% @events.each do |event|  %>
+      <a href="<%= event_path(event) %>">
+        <div class="card-trip">
+          <i class="fas fa-user-plus"></i>
+          <% if event.photo.attached? %>
+            <%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %>
+          <% else %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <%end%>
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= event.name %></h2>
+              <p><%= event.description[0..10] %></p>
+            </div>
+            <h2 class="card-trip-pricing"><%= event.location %></h2>
+            <% if User.find(event.user_id).photo.attached? %>
+              <%= cl_image_tag User.find(event.user_id).photo.key, class: :"card-trip-user avatar-bordered" %>
+            <% else %>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            <% end %>
           </div>
-          <h2 class="card-trip-pricing"><%= event.location %></h2>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
         </div>
-      </div>
-    </a>
+      </a>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
+
 <div class="footer">
-  <p>This is footer</p>
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
 </div>
