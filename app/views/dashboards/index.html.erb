@@ -16,7 +16,7 @@
       <% end %>
     <% end %>
 
-  <div class="container center">
+<div class="container center">
   <% if !@events.nil? %>
     <% @my_events.each do |event|  %>
     <a href="<%= event_path(event) %>">
@@ -37,17 +37,22 @@
       </div>
     </a>
     <% end %>
+  <% else %>
+      <h3>You haven't hosted any events yet</h3>
   <% end %>
 </div>
 
 </div>
   <div class="tab-pane fade" id="joined" role="tabpanel" aria-labelledby="profile-tab">
-    <% !@my_attendances.nil? %>
-    <% @my_attendances.each do |attendance| %>
-      <%= attendance %>
-      <% if policy(attendance).show? %>
-        <%= link_to "Show", attendance_path(attendance) %>
+    <% if !@my_attendances.nil? %>
+      <% @my_attendances.each do |attendance| %>
+        <%= attendance %>
+        <% if policy(attendance).show? %>
+          <%= link_to "Show", attendance_path(attendance) %>
+        <% end %>
       <% end %>
+    <% else %>
+      <h3>You haven't joined any events yet</h3>
     <% end %>
   </div>
 </div>
