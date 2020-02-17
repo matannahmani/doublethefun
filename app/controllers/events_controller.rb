@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :find_event, only: [:edit,:show,:destroy,:edit,:event,:update]
   def index
-    @events = Event.all()
+    @evnts = policy_scope(Event)
   end
 
   def show
@@ -18,6 +18,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    authorize @event
   end
 
   def create
@@ -35,6 +36,7 @@ class EventsController < ApplicationController
   def find_event
     if Event.exists?(params[:id])
       @event = Event.find(params[:id])
+      authorize @event
     else
       redirect_to(root_path)
     end
