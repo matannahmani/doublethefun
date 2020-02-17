@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :find_event, only: [:edit,:show,:destroy,:edit,:event,:update]
   def index
-    @evnts = policy_scope(Event)
+    @events = policy_scope(Event)
   end
 
   def show
@@ -22,7 +22,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    Event.create(strong_params)
+    @event = Event.new(strong_params)
+    @event.user_id = current_user.id
+    @event.save!
+    authorize @event
     redirect_to(root_path)
   end
 
@@ -43,6 +46,6 @@ class EventsController < ApplicationController
   end
 
   def strong_params
-    params.require(:event).permit(:name, :description, :location,:team,:user_id)
+    params.require(:event).permit(:name, :description, :location,:team,:user_id,:photo )
   end
 end
