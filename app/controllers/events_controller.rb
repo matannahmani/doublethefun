@@ -22,9 +22,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(strong_params)
-    redirect_to(root_path)
+    @event = Event.new(strong_params)
+    @event.user_id = current_user.id
+    @event.save!
     authorize @event
+    redirect_to(root_path)
   end
 
   def update
@@ -44,6 +46,6 @@ class EventsController < ApplicationController
   end
 
   def strong_params
-    params.require(:event).permit(:name, :description, :location)
+    params.require(:event).permit(:name, :description, :location,:team,:user_id,:photo )
   end
 end

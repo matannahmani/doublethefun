@@ -31,3 +31,5 @@ group :development, :test do
 end
 
 gem "devise", "~> 4.7"
+
+gem "cloudinary", "~> 1.13"
