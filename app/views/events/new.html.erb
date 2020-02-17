@@ -1,6 +1,4 @@
-<div class="navbar">
-  <span><%= render "shared/navbar"%></span>
-</div>
+
 <%= simple_form_for :event,url: create_path do |f| %>
   <div class="form-group">
     <%= f.label :name %>
@@ -28,7 +26,3 @@
 
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
-
-<div class="footer">
-  <span><%= render 'shared/footer' %> </span>
-</div>
