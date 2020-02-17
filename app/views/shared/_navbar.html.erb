@@ -17,7 +17,7 @@
         <%= link_to "Add Event", "#", class: "nav-link" %>
       </li>
       <li class="nav-item dropdown">
-          <% if current_user.photo.attached? %>
+          <% if user_signed_in? && current_user.photo.attached? %>
             <%= cl_image_tag event.photo.key, height: 200, width: 200, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
           <% else %>
             <%= image_tag "https://source.unsplash.com/user/erondu/200x200", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
