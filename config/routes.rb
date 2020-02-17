@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   patch '/events/:id/update', to: 'events#update', as: :update
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :events do
-    resources :attendance, only:[:create]
+    resources :attendances, only:[:create]
   end
 end

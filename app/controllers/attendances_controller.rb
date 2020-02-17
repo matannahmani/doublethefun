@@ -3,8 +3,14 @@ class AttendancesController < ApplicationController
   before_action :set_event
 
   def create
-    attendance = Attendance.create(event: @event , user: current_user)
-    redirect_to event_path(@event)
+    if Attendance.find_by(event: @event.id).nil?
+    attendance = Attendance.create(event_id: @event.id , user_id: current_user.id)
+    authorize attendance
+    redirect_to root_path, alert: 'You joined the Event!'
+    else
+    authorize Attendance.where(event_id: @event.id)
+    redirect_to root_path, alert: "Event is full"
+    end
   end
 
   private
