@@ -3,9 +3,10 @@ class AttendancesController < ApplicationController
   before_action :set_event
 
   def create
-    attendance = Attendance.new(event: @event , user: current_user)
+    @attendance = Attendance.new(event: @event , user: current_user)
     if attendance.save
       redirect_to event_path(@event)
+      authorize @attendance
     else
       render :new
     end

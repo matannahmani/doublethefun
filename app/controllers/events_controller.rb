@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :find_event, only: [:edit,:show,:destroy,:edit,:event,:update]
   def index
-    @evnts = policy_scope(Event)
+    @events = policy_scope(Event)
   end
 
   def show
@@ -22,8 +22,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    Event.create(strong_params)
+    @event = Event.create(strong_params)
     redirect_to(root_path)
+    authorize @event
   end
 
   def update
