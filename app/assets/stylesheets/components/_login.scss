@@ -1,12 +1,12 @@
 body{
-  background-color: #3D5A6C;
+  background-color: #3D5A80;
 }
 h1{
   font-weight: 500;
   font-style: san-sarif;
 }
 .form-inputs{
-  background: #72A98F;
+  background: #E0FBFC;
   width: 300px;
   padding: 40px;
   display: block;
@@ -14,12 +14,12 @@ h1{
   text-align: center;
 }
 
-#email, #password, #submit{
+.email input, .password input, #submit{
   display: block;
   background: none;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #8DE969;
+  border: 2px solid #293241;
   padding: 14px 10px;
   width: 200px;
   outline: none;
@@ -27,7 +27,7 @@ h1{
   border-radius: 24px;
   transition: 0.25s;
 }
-.login_form #email:focus,.login_form #password:focus{
+.email input:focus,.password input:focus{
   border-color: #CBEF43;
-  width: 280px;
+  width: 240px;
 }
