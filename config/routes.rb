@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :events, only: [:new, :new, :show, :edit]
+  resources :events, only: [:new, :show, :edit]
   root to: 'events#index'
   get 'dashboard', to: 'dashboards#index'
   delete '/events/:id', to: 'events#destroy', as: :destroy

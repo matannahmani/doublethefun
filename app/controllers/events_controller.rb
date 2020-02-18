@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :find_event, only: [:edit,:show,:destroy,:edit,:event,:update]
+  before_action :find_event, only: [:edit,:show,:destroy,:edit,:update]
   def index
     @events = policy_scope(Event)
   end
