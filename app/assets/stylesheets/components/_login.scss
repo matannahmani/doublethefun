@@ -5,30 +5,59 @@ h1{
   font-weight: 500;
   font-style: san-sarif;
 }
-.form-inputs{
-  background: #72A98F;
-  width: 300px;
-  padding: 40px;
-  display: block;
-  transform: translate(50%,50%);
-  text-align: center;
-}
 
-#email, #password, #submit{
+
+.email input,.password input,.form-inputs .btn,.form-actions a,.form-actions .submit,.form-control {
   display: block;
   background: none;
-  margin: 20px auto;
+  margin: 10px auto;
   text-align: center;
   border: 2px solid #8DE969;
-  padding: 14px 10px;
-  width: 200px;
+  padding: 2px 2px;
+  width: 120px;
   outline: none;
   color: white;
   border-radius: 24px;
   transition: 0.25s;
 }
-.login_form #email:focus,.login_form #password:focus{
+.simple_form {
+  position: absolute;
+  top:0;
+  right:50%;
+}
+.form-actions{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  a{
+    position: relative;
+    margin-left: 8px;
+  }
+  .btn:hover{
+  border-color: white;
+  }
+}
+#new_user .form-inputs{
+  margin-top: -50vh;
+  display: flex;
+  background: $light-blue;
+  padding: 10px;
+  padding-bottom: 50px;
+  transform: translate(50%,50%);
+  text-align: center;
+  width: 500px;
+  height: 1100px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  label{
+    color:white;
+  }
+}
+.email input:focus,.password input:focus,.form-control:focus{
   border-color: #CBEF43;
-  width: 280px;
+  width: 200px;
 }
 // test
