@@ -6,7 +6,7 @@ h1{
   font-style: san-sarif;
 }
 .form-inputs{
-  background: #E0FBFC;
+  background: #98C1D9;
   width: 300px;
   padding: 40px;
   display: block;
@@ -27,7 +27,18 @@ h1{
   border-radius: 24px;
   transition: 0.25s;
 }
+
+#submit{
+  color: white !important;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $orangish;
+  transition: background 0.3s ease;
+}
+
 .email input:focus,.password input:focus{
-  border-color: #CBEF43;
+  border-color: #293241;
   width: 240px;
 }
+
+
