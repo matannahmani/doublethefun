@@ -9,7 +9,11 @@
 <div class="card-product" style="position: relative;">
   <p id="update"><%= link_to '<i class="fas fa-edit fa-2x"></i>'.html_safe, edit_event_path(@event), method: :get %></p>
   <p id="delete"><%= link_to '<i class="fas fa-trash-alt fa-2x"></i>'.html_safe, destroy_path(@event), method: :delete %></p>
-  <img src="http://res.cloudinary.com/dgq92f6st/image/upload/c_fill,h_150,w_150/NYyRLqz3GTLZB97XQUoKiyvK" width="150" height="150">
+  <% if @event.photo.attached? %>
+    <%= cl_image_tag @event.photo.key, class: :"card-trip-user" %>
+  <% else %>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user" />
+  <% end %>
   <div class="card-product-infos">
     <h2><%= @event.name %></h2>
     <h3><%= @event.team %></h3>
