@@ -13,10 +13,11 @@
 }
 #item{
   margin: 8px;
-  background-color: white;
+  background-color: $whitish;
   border: solid;
+  text-align: center;
   border-radius: 4px;
-  border-color: white;
+  border-color: $whitish;
   width: 120px;
 }
 #avatar-nav{
