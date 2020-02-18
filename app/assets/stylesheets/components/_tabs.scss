@@ -8,8 +8,14 @@
 
 .nav-tabs .nav-link {
   border: 1px none transparent;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 .nav-tabs {
   margin-top: 80px
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  background-color: $torquise;
 }
