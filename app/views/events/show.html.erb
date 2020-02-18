@@ -1,17 +1,20 @@
 <div class="navbar">
   <span>Here is a Navbar</span>
 </div>
-  <% if !@event.nil? %>
-      <div class="card">
-        <img src="">
-        <h2><%= @event.name %></h2>
-        <h3><%= @event.team %></h3>
-        <h3><%= @event.description %></h3>
-        <h3><%= @event.location %></h3>
-      <h3><%= link_to "delete", destroy_path(@event), method: :delete %></h3>
-      <h3><%= link_to "update", edit_event_path(@event), method: :get %></h3>
-      </div>
-  <% end %>
-<div class="footer">
-  <p>This is footer</p>
+<div class="banner">
+  <img src="">
+  <h1></h1>
 </div>
+<% if !@event.nil? %>
+<div class="card-product" style="position: relative;">
+  <p id="update"><%= link_to '<i class="fas fa-edit fa-2x"></i>'.html_safe, edit_event_path(@event), method: :get %></p>
+  <p id="delete"><%= link_to '<i class="fas fa-trash-alt fa-2x"></i>'.html_safe, destroy_path(@event), method: :delete %></p>
+  <img src="http://res.cloudinary.com/dgq92f6st/image/upload/c_fill,h_150,w_150/NYyRLqz3GTLZB97XQUoKiyvK" width="150" height="150">
+  <div class="card-product-infos">
+    <h2><%= @event.name %></h2>
+    <h3><%= @event.team %></h3>
+    <div class="description-wrap"><p>- <%= @event.description %></p></div>
+    <p><strong>Location: <%= @event.location %></strong></h3>
+  </div>
+</div>
+<% end %>
