@@ -1,4 +1,3 @@
-
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#hosted" role="tab" aria-controls="home" aria-selected="true">Events Hosted</a>
@@ -9,13 +8,6 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="hosted" role="tabpanel" aria-labelledby="home-tab">
- <!--    <% @my_events.each do |event| %>
-    <%= event.name %>
-      <% if policy(event).show? %>
-        <%= link_to "Show", event_path(event) %>
-      <% end %>
-    <% end %>
- -->
   <div class="container">
     <div class="cardbox">
       <% if !@events.nil? %>
@@ -23,7 +15,7 @@
         <a href="<%= event_path(event) %>">
           <div class="card-trip">
             <i class="fas fa-user-plus"></i>
-            <% if event.photo.attached? %>
+            <% if Event.find(event.id).photo.attached? %>
               <%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %>
             <% else %>
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
@@ -46,24 +38,16 @@
       <% end %>
     </div>
   </div>
-
 </div>
   <div class="tab-pane fade" id="joined" role="tabpanel" aria-labelledby="profile-tab">
-    <% if !@my_attendances.nil? %>
-      <% @my_attendances.each do |attendance| %>
-        <%= attendance %>
-        <% if policy(attendance).show? %>
-          <%= link_to "Show", attendance_path(attendance) %>
-        <% end %>
-      <% end %>
-    <% else %>
+    <% if @my_attendances.nil? %>
       <h3>You haven't joined any events yet</h3>
     <% end %>
-
   <div class="container">
     <div class="cardbox">
       <% if !@events.nil? %>
         <% @my_attendances.each do |event|  %>
+        <% event = Event.find(event.event_id) %>
         <a href="<%= event_path(event) %>">
           <div class="card-trip">
             <i class="fas fa-user-plus"></i>
