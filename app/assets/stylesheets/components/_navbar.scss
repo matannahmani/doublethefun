@@ -4,14 +4,48 @@
   top: 0;
   width: 100%;
   justify-content: space-between;
-  background: white;
-  height: 80px;
+  background: #98C1D9;
+  height: 95px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
-
+#item{
+  margin: 8px;
+  background-color: white;
+  border: solid;
+  border-radius: 4px;
+  border-color: white;
+  width: 120px;
+}
+#avatar-nav{
+  margin: 8px;
+}
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  margin-left: -18px;
+  width: 120px;
+}
+.banner {
+  padding-left: 16px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.banner h3 {
+  svg {
+    margin-top: 8px;
+    width: 40vw;
+  }
+}
+
+@media (max-width : 400px) {
+  .banner h3{
+    svg {
+  margin-left: -12vw;
+    }
+  }
 }
