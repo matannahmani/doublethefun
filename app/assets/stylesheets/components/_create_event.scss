@@ -1,0 +1,34 @@
+.form-group {
+  color: white;
+}
+
+.new-event {
+  margin-top: 110px;
+}
+
+.create-button {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $orangish;
+  transition: background 0.3s ease;
+}
+
+.create-button:hover {
+  background: #bb300f;
+  color: white;
+}
+
+.event-box {
+  background-color: $light-blue;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.center-button {
+  text-align: center;
+}
+
+.event-box .form-control {
+  border-radius: 6px;
+}
