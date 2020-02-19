@@ -1,5 +1,5 @@
 body{
-  background-color: $dark-blue;
+  background-color: $whitish;
 }
 h1{
   font-weight: 500;
@@ -7,66 +7,66 @@ h1{
 }
 
 
-.email input,.password input,.form-inputs .btn,.form-actions a,.form-actions .submit,.form-control {
-  display: block;
-  background: none;
-  margin: 10px auto;
-  text-align: center;
-  border: 2px solid #8DE969;
-  padding: 2px 2px;
-  width: 120px;
-  outline: none;
-  color: white;
-  border-radius: 24px;
-  transition: 0.25s;
-}
-#new_user {
-  position: absolute;
-  top:0;
-  right:50%;
-}
-.form-actions{
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  a{
-    position: relative;
-    margin-left: 8px;
-  }
-  .btn:hover{
-  border-color: white;
-  }
-}
-#new_user .form-inputs{
-  margin-top: -50vh;
-  display: flex;
-  background: $light-blue;
-  padding: 10px;
-  padding-bottom: 50px;
-  transform: translate(50%,50%);
-  text-align: center;
-  width: 500px;
-  height: 1100px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  label{
-    color:white;
-  }
-}
-.email input:focus,.password input:focus,.form-control:focus{
-  border-color: #CBEF43;
-  width: 200px;
-}
-// test
-.edit_event{
-  display: flex;
-  flex-direction: column;
-  justify-items: center;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-  position: none;
-}
+// .email input,.password input,.form-inputs .btn,.form-actions a,.form-actions .submit,.form-control {
+//   display: block;
+//   background: none;
+//   margin: 10px auto;
+//   text-align: center;
+//   border: 2px solid #8DE969;
+//   padding: 2px 2px;
+//   width: 120px;
+//   outline: none;
+//   color: white;
+//   border-radius: 24px;
+//   transition: 0.25s;
+// }
+// #new_user {
+//   position: absolute;
+//   top:0;
+//   right:50%;
+// }
+// .form-actions{
+//   display: flex;
+//   flex-direction: row;
+//   text-align: center;
+//   justify-content: center;
+//   align-items: center;
+//   a{
+//     position: relative;
+//     margin-left: 8px;
+//   }
+//   .btn:hover{
+//   border-color: white;
+//   }
+// }
+// #new_user .form-inputs{
+//   margin-top: -50vh;
+//   display: flex;
+//   background: $light-blue;
+//   padding: 10px;
+//   padding-bottom: 50px;
+//   transform: translate(50%,50%);
+//   text-align: center;
+//   width: 500px;
+//   height: 1100px;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   label{
+//     color:white;
+//   }
+// }
+// .email input:focus,.password input:focus,.form-control:focus{
+//   border-color: #CBEF43;
+//   width: 200px;
+// }
+// // test
+// .edit_event{
+//   display: flex;
+//   flex-direction: column;
+//   justify-items: center;
+//   justify-content: center;
+//   align-content: center;
+//   text-align: center;
+//   position: none;
+// }
