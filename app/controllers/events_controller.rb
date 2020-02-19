@@ -10,14 +10,12 @@ class EventsController < ApplicationController
   end
 
   def show
-
-    @events = Event.geocoded #returns flats with coordinates
-    @markers = @events.map do |event|
-      {
-        lat: event.latitude,
-        lng: event.longitude
+    # @event[lat] = @event.latitude
+    # @event[lng] = @event.longitude
+    @markers = {
+        lat: @event.latitude,
+        lng: @event.longitude
       }
-    end
   end
 
   def destroy
@@ -56,7 +54,7 @@ class EventsController < ApplicationController
 
   def find_event
     if Event.exists?(params[:id])
-      @event = Event.find(params[:id])
+      @event = Event.geocoded.find(params[:id])
       authorize @event
     else
       redirect_to(root_path)
