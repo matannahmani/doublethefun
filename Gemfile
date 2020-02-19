@@ -8,6 +8,7 @@ gem 'puma'
 gem 'rails', '5.2.4.1'
 gem 'redis'
 gem 'pundit'
+gem 'geocoder'
 
 
 gem 'autoprefixer-rails'
@@ -16,6 +17,8 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'pg_search', '~> 2.3.0'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'

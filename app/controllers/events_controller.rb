@@ -1,10 +1,23 @@
 class EventsController < ApplicationController
   before_action :find_event, only: [:edit,:show,:destroy,:edit,:update]
+
   def index
-    @events = policy_scope(Event)
+    if params[:query].present?
+      @events = policy_scope(Event.search_by_team_and_location(params[:query]))
+    else
+      @events = policy_scope(Event)
+    end
   end
 
   def show
+
+    @events = Event.geocoded #returns flats with coordinates
+    @markers = @events.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude
+      }
+    end
   end
 
   def destroy
@@ -24,9 +37,14 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(strong_params)
     @event.user_id = current_user.id
-    @event.save!
-    authorize @event
+    if @event.save
+      authorize @event
     redirect_to(root_path)
+    else
+      authorize @event
+      flash[:alert] = 'Event was not saved.'
+      redirect_to(root_path)
+    end
   end
 
   def update
