@@ -10,34 +10,41 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: $redish;
+  background: $grass-green;
   transition: background 0.3s ease;
 }
 
+.row {
+  margin-bottom: 100px;
+}
+
 .create-button:hover {
-  background: #bb300f;
-  color: white;
+  background: #69d03f;
+}
+
+.col-lg-5 {
+  margin: 0px 0px 0px;
 }
 
 .event-box {
-  // background-color: $light-blue;
-  // padding: 10px;
-  // border-radius: 3px;
   background-color: white;
-      box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 840px;
-    padding: 24px 16px 8px;
-    width: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 840px;
+  padding: 24px 16px 8px;
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 
 }
 
 .center-button {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .event-box .form-control {
   border-radius: 6px;
 }
+

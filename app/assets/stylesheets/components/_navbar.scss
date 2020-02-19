@@ -4,7 +4,7 @@
   top: 0;
   width: 100%;
   justify-content: space-between;
-  background: white;
+  background: #567D46;
   height: 95px;
 }
 
@@ -13,13 +13,22 @@
 }
 #item{
   margin: 8px;
-  background-color: $whitish;
+  background-color: $grass-green;
   border: solid;
   text-align: center;
   border-radius: 4px;
-  border-color: $whitish;
-  width: 120px;
+  border-color: $grass-green;
+  width: 100px;
 }
+
+.navbar-light .navbar-nav .active > .nav-link {
+  color: white;
+}
+
+.navbar-light .navbar-nav .active > .nav-link:hover {
+  color: black;
+}
+
 #avatar-nav{
   margin: 8px;
 }
