@@ -1,38 +1,40 @@
-<div class="container whole-card">
-  <% if !@event.nil? %>
-  <div class="first-card">
-    <div class="profile">
-      <p class="host"><strong>Host:</strong></p>
-
-        <% if @event.photo.attached? %>
-        <%= cl_image_tag @event.photo.key %>
-        <% else %>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
-        <% end %>
-      <div class="profile-text">
-        <p class="host-name"><%= format_name %></p>
+<div class="container">
+  <div class="event-show-card">
+    <% if !@event.nil? %>
+    <div class="top-show-card">
+          <% if @event.photo.attached? %>
+          <%= cl_image_tag @event.photo.key %>
+          <% else %>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+          <% end %>
+      <div class="show-title">
+        <h1><strong><%= @event.name %></strong></h1>
+        <h4><%= @event.date %></h4>
+      </div>
+      <div class="show-buttons">
+        <p id="update"><%= link_to '<i class="fas fa-edit fa-2x"></i>'.html_safe, edit_event_path(@event), method: :get %></p>
+        <p id="delete"><%= link_to '<i class="fas fa-trash-alt fa-2x"></i>'.html_safe, destroy_path(@event), method: :delete %></p>
       </div>
     </div>
-    <div class="text">
-      <h1><strong><%= @event.name %></strong></h1>
-      <h4><%= @event.date %></h4>
+    <div class="middle-show-card">
+      <div class="profile">
+        <p class="host"><strong>Host:</strong></p>
+
+        <div class="profile-text">
+          <p class="host-name"><%= format_name %></p>
+        </div>
+      </div>
+      <div class="description">
+        <p>- <%= @event.description %></p>
+      </div>
+      <div class="team-card">
+        <p>Team:</p>
+        <h3><%= @event.team %></h3>
+      </div>
     </div>
-    <div class="buttons">
-      <p id="update"><%= link_to '<i class="fas fa-edit fa"></i>'.html_safe, edit_event_path(@event), method: :get %></p>
-      <p id="delete"><%= link_to '<i class="fas fa-trash-alt fa"></i>'.html_safe, destroy_path(@event), method: :delete %></p>
+    <div class="location-show-card">
+      <strong>Location: <%= @event.location %></strong>
     </div>
+    <% end %>
   </div>
-  <div class="second-card">
-    <div class="team-card">
-      <p>Team:</p>
-      <h3><%= @event.team %></h3>
-    </div>
-    <div class="description">
-      <p>- <%= @event.description %></p>
-    </div>
-  </div>
-  <div class="location">
-    <strong>Location: <%= @event.location %></strong>
-  </div>
-  <% end %>
 </div>
