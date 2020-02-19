@@ -48,3 +48,19 @@
   border-radius: 6px;
 }
 
+.optional-bottom{
+  border-top: 1px solid gray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.optional-bottom a {
+  margin-left: 3px;
+}
+
+
+.sign-up-options {
+  display: flex;
+  justify-content: space-between;
+}

@@ -18,6 +18,10 @@
         </div>
 
         <div class="form-group">
+          <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        </div>
+
+        <div class="form-group">
           <%= f.label :location %>
           <%= f.text_field :location, class: 'form-control' %>
         </div>
@@ -27,7 +31,7 @@
         </div>
 
         <div class="center-button">
-          <%= f.submit 'Create Event', class: 'create-button' %>
+          <%= f.submit 'Create Event', class: 'create-button center-button' %>
         </div>
       <% end %>
     </div>

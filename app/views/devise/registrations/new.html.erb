@@ -35,12 +35,16 @@
                       input_html: { autocomplete: "photo"}%>
 
         <div class="center-button">
-          <div class="create-button">
-          <%= f.button :submit, "Sign up" %>
+          <div class="center-button">
+            <%= f.button :submit, "Sign up", class: "create-button center-button" %>
           </div>
         </div>
 
       <% end %>
-      <%= link_to "Sign in", user_session_path %>
+      <div class="optional-bottom">
+        <p>Already a member?</p>
+        <%= link_to "Sign in", user_session_path %>
+      </div>
+    </div>
   </div>
 </div>

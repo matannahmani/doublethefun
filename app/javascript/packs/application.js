@@ -1,4 +1,6 @@
 import "bootstrap";
+import "../plugins/flatpickr"
+
 const svgPath = document.querySelectorAll('.path');
 
 const svgText = anime({
