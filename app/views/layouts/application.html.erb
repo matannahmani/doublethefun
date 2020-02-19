@@ -65,9 +65,9 @@
       <li class="nav-item" id="avatar-nav">
           <% if !current_user.nil? %>
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, height: 200, width: 200, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
+            <%= cl_image_tag current_user.photo.key, height: 60, width: 50, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
           <% else %>
-            <%= image_tag "https://source.unsplash.com/user/erondu/200x200", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "https://source.unsplash.com/60x50", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <% end %>
       </li>

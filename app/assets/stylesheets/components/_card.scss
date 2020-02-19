@@ -96,8 +96,8 @@ $flag:'#{$host}flag.png';
     .flag {
       @include pos(absolute, $top:50%, $right: 0);
       transform:translateY(-50%);
-      @include size(35px, 23px);
-      background:url($flag) no-repeat top right;
+      @include size(60px, 60px);
+      background: no-repeat top right;
       background-size:100% auto;
       display:inline-block;
     }

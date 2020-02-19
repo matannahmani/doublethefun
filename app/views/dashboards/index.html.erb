@@ -8,71 +8,65 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="hosted" role="tabpanel" aria-labelledby="home-tab">
-  <div class="container">
-    <div class="cardbox">
-      <% if !@events.nil? %>
-        <% @my_events.each do |event|  %>
-        <a href="<%= event_path(event) %>">
-          <div class="card-trip">
-            <i class="fas fa-user-plus"></i>
-            <% if Event.find(event.id).photo.attached? %>
-              <%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %>
-            <% else %>
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-            <%end%>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= event.name %></h2>
-                <p><%= event.description[0..10] %></p>
+    <div class="container-fluid main-container">
+        <% if !@my_events.nil? %>
+            <div class="cardbox">
+          <% @my_events.each do |event| %>
+              <div class="card">
+                <% if event.photo.attached? %>
+                  <div class="thumb"><%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %></div>
+                  <% else %>
+                    <div class="thumb"><img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /></div>
+                  <%end%>
+                    <a href="<%= event_path(event) %>" style="text-decoration: none"><div class="infos">
+                    <h2 class="title"><%= event.name %></h2>
+                    <h3 class="date"><%= event.date.nil? ? "Date not specifed" : event.date.to_formatted_s(:short) %></h3>
+                    <p class="txt"><%= event.description %></p>
+                      <% if User.find(event.user_id).photo.attached? %>
+                        <%= cl_image_tag User.find(event.user_id).photo.key, class: :"flag avatar-bordered" %>
+                      <% else %>
+                        <img class ="flag avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                      <% end %>
+                      <h3 class="details"><%= event.location %></h3>
+                    </div></a>
+                </div>
+            <% end %>
               </div>
-              <h2 class="card-trip-pricing"><%= event.location %></h2>
-              <% if User.find(event.user_id).photo.attached? %>
-                <%= cl_image_tag User.find(event.user_id).photo.key, class: :"card-trip-user avatar-bordered" %>
-              <% else %>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-              <% end %>
-            </div>
-          </div>
-        </a>
-        <% end %>
-      <% end %>
+          <% end %>
     </div>
-  </div>
+
 </div>
-  <div class="tab-pane fade" id="joined" role="tabpanel" aria-labelledby="profile-tab">
+  <div class="tab-pane fade" id="joined" role="tabpanel" aria-labelledby="profile-tab" style="margin-top: 120px">
     <% if @my_attendances.nil? %>
       <h3>You haven't joined any events yet</h3>
     <% end %>
-  <div class="container">
-    <div class="cardbox">
-      <% if !@events.nil? %>
-        <% @my_attendances.each do |event|  %>
-        <% event = Event.find(event.event_id) %>
-        <a href="<%= event_path(event) %>">
-          <div class="card-trip">
-            <i class="fas fa-user-plus"></i>
-            <% if event.photo.attached? %>
-              <%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %>
-            <% else %>
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-            <%end%>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= event.name %></h2>
-                <p><%= event.description[0..10] %></p>
+    <div class="container-fluid main-container">
+        <% if !@my_attendances.nil? %>
+            <div class="cardbox">
+          <% @my_attendances.each do |attandace| %>
+              <% event = Event.find(attandace.event_id) %>
+              <div class="card">
+                <% if event.photo.attached? %>
+                  <div class="thumb"><%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %></div>
+                  <% else %>
+                    <div class="thumb"><img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /></div>
+                  <%end%>
+                    <a href="<%= event_path(event) %>" style="text-decoration: none"><div class="infos">
+                    <h2 class="title"><%= event.name %></h2>
+                    <h3 class="date"><%= event.date.nil? ? "Date not specifed" : event.date.to_formatted_s(:short) %></h3>
+                    <p class="txt"><%= event.description %></p>
+                      <% if User.find(event.user_id).photo.attached? %>
+                        <%= cl_image_tag User.find(event.user_id).photo.key, class: :"flag avatar-bordered" %>
+                      <% else %>
+                        <img class ="flag avatar-bordered" src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                      <% end %>
+                      <h3 class="details"><%= event.location %></h3>
+                    </div></a>
+                </div>
+            <% end %>
               </div>
-              <h2 class="card-trip-pricing"><%= event.location %></h2>
-              <% if User.find(event.user_id).photo.attached? %>
-                <%= cl_image_tag User.find(event.user_id).photo.key, class: :"card-trip-user avatar-bordered" %>
-              <% else %>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-              <% end %>
-            </div>
-          </div>
-        </a>
-        <% end %>
-      <% end %>
+          <% end %>
     </div>
-  </div>
+
   </div>
 </div>
