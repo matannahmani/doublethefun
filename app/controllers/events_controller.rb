@@ -24,9 +24,14 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(strong_params)
     @event.user_id = current_user.id
-    @event.save!
-    authorize @event
+    if @event.save
+      authorize @event
     redirect_to(root_path)
+    else
+      authorize @event
+      flash[:alert] = 'Event was not saved.'
+      redirect_to(root_path)
+    end
   end
 
   def update
