@@ -13,6 +13,18 @@
   width: 200px;
 }
 
-.btn-ghost:hover {
+.btn-home:hover {
   opacity: 1;
+  background-color: #69D03F;
+  color: white;
+}
+
+.btn-home{
+  background-color: #567D46;
+  color: white;
+  text: bold;
+  padding: 14px 10px;
+  border-radius: 24px;
+  margin: 60px auto;
+  width: 200px;
 }
