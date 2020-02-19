@@ -10,6 +10,14 @@ class EventsController < ApplicationController
   end
 
   def show
+
+    @events = Event.geocoded #returns flats with coordinates
+    @markers = @events.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude
+      }
+    end
   end
 
   def destroy
@@ -29,9 +37,14 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(strong_params)
     @event.user_id = current_user.id
-    @event.save!
-    authorize @event
+    if @event.save
+      authorize @event
     redirect_to(root_path)
+    else
+      authorize @event
+      flash[:alert] = 'Event was not saved.'
+      redirect_to(root_path)
+    end
   end
 
   def update
@@ -51,6 +64,6 @@ class EventsController < ApplicationController
   end
 
   def strong_params
-    params.require(:event).permit(:name, :description, :location,:team,:user_id,:photo )
+    params.require(:event).permit(:name, :description, :location,:team,:user_id,:photo, :date )
   end
 end
