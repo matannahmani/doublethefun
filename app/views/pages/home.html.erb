@@ -1,2 +1,27 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+
+
+<div class="home-video-wrapper">
+  <%= video_tag "https://res.cloudinary.com/dgq92f6st/video/upload/v1582114114/bannervideo_dccmev.mp4", \
+                autoplay: :autoplay, loop: true, muted: :muted,
+                class: "home-video", preload: :metadata
+                # poster: "home_video_poster.png",
+                # poster_skip_pipeline: true
+  %>
+  <div class="banner">
+    <div class="text-center">
+      <h1>It's game time</h1>
+      <h3 class="text-center"><strong> Watch your team</strong></h3>
+      <h2 class="text-center"><strong>Anywhere</strong></h2>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-home" %>
+      <div class="text-center d-flex justify-content-center">
+        <div class="search search-banner">
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
