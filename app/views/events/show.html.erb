@@ -1,25 +1,30 @@
 <div class="container">
   <div class="event-show-card">
-    <% if !@event.nil? %>
+    <% unless @event.nil? %>
     <div class="top-show-card">
-          <% if @event.photo.attached? %>
-          <%= cl_image_tag @event.photo.key %>
-          <% else %>
-          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
-          <% end %>
+      <% if @event.photo.attached? %>
+      <%= cl_image_tag @event.photo.key %>
+      <% else %>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+      <% end %>
       <div class="show-title">
         <h1><strong><%= @event.name %></strong></h1>
         <h4><%= @event.date %></h4>
       </div>
+      <% if @event.user_id == current_user %>
       <div class="show-buttons">
         <p id="update"><%= link_to '<i class="fas fa-edit fa-2x"></i>'.html_safe, edit_event_path(@event), method: :get %></p>
         <p id="delete"><%= link_to '<i class="fas fa-trash-alt fa-2x"></i>'.html_safe, destroy_path(@event), method: :delete %></p>
       </div>
+      <% else %>
+      <div class="show-buttons">
+        <p id="delete"><%= link_to "", event_attendances_path(@event), class: "fas fa-user-plus fa-2x", method: :post if Attendance.find_by(event_id: @event.id).nil? && @event.user_id != current_user.id %></p>
+      </div>
+      <% end %>
     </div>
     <div class="middle-show-card">
       <div class="profile">
         <p class="host"><strong>Host:</strong></p>
-
         <div class="profile-text">
           <p class="host-name"><%= format_name %></p>
         </div>
@@ -36,16 +41,11 @@
       <strong>Location: <%= @event.location %></strong>
     </div>
     <div
-  id="map"
-  style="width: 100%;
-  height: 300px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
-    
-    
+      id="map"
+      style="width: 100%;
+      height: 300px;"
+      data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
     <% end %>
   </div>
 </div>
-<% end %>
-
