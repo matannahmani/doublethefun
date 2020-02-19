@@ -1,7 +1,12 @@
 class EventsController < ApplicationController
   before_action :find_event, only: [:edit,:show,:destroy,:edit,:update]
+
   def index
-    @events = policy_scope(Event)
+    if params[:query].present?
+      @events = policy_scope(Event.search_by_team_and_location(params[:query]))
+    else
+      @events = policy_scope(Event)
+    end
   end
 
   def show
