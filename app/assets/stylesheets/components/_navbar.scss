@@ -20,6 +20,17 @@
   border: 1px solid white;
   width: 100px;
 }
+.navbar-nav {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatar {
+  display: flex;
+  margin-left: 8px;
+  justify-content: flex-end;
+}
+
 .ml-6{
   margin-left: 15%;
 }
