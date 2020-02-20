@@ -1,6 +1,6 @@
 <div class="container new-event">
   <div class="row justify-content-center">
-    <div class="col-lg-6 event-box">
+    <div class="col-lg-5 event-box">
       <%= simple_form_for @event,url: update_path do |f| %>
         <div class="form-group">
           <%= f.label :name %>
@@ -18,9 +18,13 @@
         </div>
 
         <div class="form-group">
-          <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.label :capacity %>
+          <%= f.text_field :capacity, class: 'form-control' %>
         </div>
 
+        <div class="form-group">
+          <%= f.input :date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        </div>
 
         <div class="form-group">
           <%= f.label :location %>
