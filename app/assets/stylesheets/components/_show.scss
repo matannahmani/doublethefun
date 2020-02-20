@@ -10,23 +10,57 @@
   border-radius: 10px;
 }
 
-.profile{
+.show-event-name{
   flex-grow: 1;
+}
+
+.attendance-list{
+
+}
+
+.profile{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   border-right: 1px solid #567D46;
-  border-radius: 50%;
+  width: 250px;
+  padding-top: 15px;
+  .profile-text{
+    display: flex;
+    flex-direction: column;
+  }
   .host-name{
     font-size: 11px;
   }
+}
+
+.show-event-name{
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.attendance-list{
+  padding-top: 24px;
 }
 .host{
   font-size: 11px;
 }
 
+.profile-image{
+    img{
+    width: 56px;
+    border-radius: 50%;
+    }
+}
 
-.show-title{
+.title-attendance{
+  display: flex;
+  flex-direction: column;
+}
+
+.title-actions{
+  display: flex;
+  flex-direction: row;
   flex-grow: 1;
   justify-content: center;
   margin-left: 15px;
@@ -90,6 +124,7 @@
   justify-content: flex-end;
   margin-top: 12px;
   margin-right: 15px;
+  margin-left: 187px;
 }
 
 .location-show-card{
