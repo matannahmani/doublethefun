@@ -22,7 +22,7 @@
             <% if counter < 5 %>
             <i>
               <span><%= attendance.user.first_name %></span>
-              <%= cl_image_tag(attendance.user.photo.key) %>
+              <%= cl_image_tag(attendance.user.photo.key) if attendance.user.photo.attached? %>
             </i>
             <% counter+=1; %>
             <% end %>
