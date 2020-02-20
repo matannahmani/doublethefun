@@ -12,7 +12,7 @@
   flex-grow: 0;
 }
 #item{
-  margin: 8px;
+  margin: 16px;
   background-color: $grass-green;
   border: solid;
   text-align: center;
@@ -20,7 +20,9 @@
   border: 1px solid white;
   width: 100px;
 }
-
+.ml-6{
+  margin-left: 15%;
+}
 .navbar-light .navbar-nav .active > .nav-link {
   color: white;
 }
