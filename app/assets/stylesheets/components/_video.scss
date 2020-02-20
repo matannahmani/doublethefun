@@ -1,5 +1,5 @@
 .home-video-wrapper {
-  height: 100vh;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,6 +12,12 @@
    object-fit: cover;
    z-index: -2;
 }
+
 #giant{
   font-size: 96px;
+}
+
+.world {
+  margin-top: 15vh;
+  margin-bottom: 10px;
 }
