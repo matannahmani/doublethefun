@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :events, only: [:new, :show, :edit]
-  root to: 'events#index'
+  root to: 'pages#home'
   get 'dashboard', to: 'dashboards#index'
   delete '/events/:id', to: 'events#destroy', as: :destroy
   post '/events/create', to: 'events#create', as: :create
