@@ -22,7 +22,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy()
-    redirect_to(root_path)
+    redirect_to(events_path)
   end
 
   def edit
@@ -39,27 +39,31 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
     if @event.save
       authorize @event
-    redirect_to(root_path)
+    redirect_to(event_path(@event))
     else
       authorize @event
       flash[:alert] = 'Event was not saved.'
-      redirect_to(root_path)
+      redirect_to(events_path)
     end
   end
 
   def update
     @event.update(strong_params)
-    redirect_to(root_path)
+    redirect_to(event_path(@event))
   end
 
   private
-
+  # ActiveRecord::RecordNotFound (Couldn't find Event with 'id'=3 [WHERE (events.latitude IS NOT NULL AND events.longitude IS NOT NULL)]):
   def find_event
     if Event.exists?(params[:id])
-      @event = Event.geocoded.find(params[:id])
+      if !Event.find(params[:id]).latitude.nil? && !Event.find(params[:id]).longitude.nil?
+      @event = Event.find(params[:id])
       authorize @event
+     else
+      redirect_to(events_path)
+    end
     else
-      redirect_to(root_path)
+      redirect_to(events_path)
     end
   end
 
