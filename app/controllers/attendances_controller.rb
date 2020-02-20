@@ -6,10 +6,10 @@ class AttendancesController < ApplicationController
     if check_event
     attendance = Attendance.create(event_id: @event.id , user_id: current_user.id)
     authorize attendance
-    redirect_to root_path, alert: 'You joined the Event!'
+    redirect_to event_path(@event.id), alert: 'You joined the Event!'
     else
     authorize Attendance.where(event_id: @event.id)
-    redirect_to root_path, alert: "Event is full"
+    redirect_to events_path, alert: "Event is full"
     end
   end
 
