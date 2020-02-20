@@ -15,6 +15,7 @@
           <% attendances = Attendance.find_by(event_id: event.id) %>
               <div class="card">
                 <% if event.photo.attached? %>
+                <i class="far fa-calendar-check fa-2x text-dark"></i>
                     <div class="thumb"><%= cl_image_tag event.photo.key, crop: :fit %></div>
                   <% else %>
                     <div class="thumb"><img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /></div>
@@ -50,6 +51,7 @@
               <% event = Event.find(attandace.event_id) %>
               <% attendances = Attendance.find_by(event_id: event.id) %>
               <div class="card">
+                <i class="far fa-calendar-check fa-2x text-dark"></i>
                 <% if event.photo.attached? %>
                     <div class="thumb"><%= cl_image_tag event.photo.key, crop: :fit %></div>
                   <% else %>

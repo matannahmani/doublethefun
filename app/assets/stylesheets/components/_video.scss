@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(to bottom, rgb(255, 255, 255) 10%,rgba(255,255,255,0) 30%)
 }
 
 .home-video {
@@ -14,10 +15,11 @@
 }
 
 #giant{
+  margin-top: 4vw;
   font-size: 96px;
 }
 
 .world {
-  margin-top: 15vh;
+  margin-top: 16vh;
   margin-bottom: 10px;
 }
