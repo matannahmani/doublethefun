@@ -12,10 +12,12 @@ class EventsController < ApplicationController
   def show
     # @event[lat] = @event.latitude
     # @event[lng] = @event.longitude
+    if !@event.latitude.nil? && !@event.longitude.nil?
     @markers = {
         lat: @event.latitude,
         lng: @event.longitude
       }
+    end
   end
 
   def destroy
