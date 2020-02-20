@@ -22,7 +22,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy()
-    redirect_to(event_path)
+    redirect_to(events_path)
   end
 
   def edit
@@ -39,17 +39,17 @@ class EventsController < ApplicationController
     @event.user_id = current_user.id
     if @event.save
       authorize @event
-    redirect_to(event_path)
+    redirect_to(event_path(@event))
     else
       authorize @event
       flash[:alert] = 'Event was not saved.'
-      redirect_to(event_path)
+      redirect_to(events_path)
     end
   end
 
   def update
     @event.update(strong_params)
-    redirect_to(event_path)
+    redirect_to(event_path(@event))
   end
 
   private
@@ -60,10 +60,10 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
       authorize @event
      else
-      redirect_to(event_path)
+      redirect_to(events_path)
     end
     else
-      redirect_to(event_path)
+      redirect_to(events_path)
     end
   end
 
