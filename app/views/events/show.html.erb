@@ -16,13 +16,13 @@
       <div class="attendance-list">
         <h3>Members</h3>
         <% Attendance.where(event_id: @event.id).each do |attendance| %>
-        <div class="members">
-          <span><%= attendance.user.first_name %><</span>
-          <%= cl_image_tag attendance.user.photo.key, class: :"flag avatar-bordered" if attendance.user.photo.attached?%>
-        </div>
+          <div class="members">
+            <span><%= attendance.user.first_name %></span>
+            <%= cl_image_tag attendance.user.photo.key, class: :"flag avatar-bordered" if attendance.user.photo.attached?%>
+          </div>
+        <% end %>
       </div>
-      <% end %>
-      <% if @event.user_id == current_user.id %>
+      <% if @event.user == current_user %>
       <div class="show-buttons">
         <p id="update"><%= link_to '<i class="fas fa-edit fa-2x"></i>'.html_safe, edit_event_path(@event), method: :get %></p>
         <p id="delete"><%= link_to '<i class="fas fa-trash-alt fa-2x"></i>'.html_safe, destroy_path(@event), method: :delete %></p>
@@ -33,7 +33,6 @@
       </div>
       <% end %>
     </div>
-  </div>
     <div class="middle-show-card">
       <div class="profile">
         <div class="profile-text">
