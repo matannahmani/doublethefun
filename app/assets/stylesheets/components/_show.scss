@@ -41,6 +41,9 @@
 
 .attendance-list{
   padding-top: 24px;
+  h3{
+    font-size: 20px;
+  }
 }
 .host{
   font-size: 11px;
@@ -73,14 +76,18 @@
   border-bottom: 1px solid #567D46;
   justify-content: space-between;
   align-content: flex-start;
+}
+
+.event-show-image{
+  width: 250px;
   img{
       display: flex;
       align-items: center;
-      width: 250px;
       max-height: 250px;
       object-fit: cover;
   }
 }
+
 
 .middle-show-card{
   display: flex;
@@ -124,7 +131,7 @@
   justify-content: flex-end;
   margin-top: 12px;
   margin-right: 15px;
-  margin-left: 187px;
+  margin-left: 100px;
 }
 
 .location-show-card{

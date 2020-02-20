@@ -2,11 +2,13 @@
   <div class="event-show-card">
     <% unless @event.nil? %>
     <div class="top-show-card">
+      <div class="event-show-image">
       <% if @event.photo.attached? %>
       <%= cl_image_tag @event.photo.key %>
       <% else %>
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" />
       <% end %>
+      </div>
       <div class="show-event-name">
         <h1><strong><%= @event.name %></strong></h1>
         <h4><%= @event.date.to_formatted_s(:long)  %></h4>
@@ -14,13 +16,13 @@
       <div class="attendance-list">
         <h3>Members</h3>
         <% Attendance.where(event_id: @event.id).each do |attendance| %>
-        <div class="members">
-          <span><%= attendance.user.first_name %><</span>
-          <%= cl_image_tag attendance.user.photo.key, class: :"flag avatar-bordered" if attendance.user.photo.attached?%>
-        </div>
+          <div class="members">
+            <span><%= attendance.user.first_name %></span>
+            <%= cl_image_tag attendance.user.photo.key, class: :"flag avatar-bordered" if attendance.user.photo.attached?%>
+          </div>
+        <% end %>
       </div>
-      <% end %>
-      <% if @event.user_id == current_user.id %>
+      <% if @event.user == current_user %>
       <div class="show-buttons">
         <p id="update"><%= link_to '<i class="fas fa-edit fa-2x"></i>'.html_safe, edit_event_path(@event), method: :get %></p>
         <p id="delete"><%= link_to '<i class="fas fa-trash-alt fa-2x"></i>'.html_safe, destroy_path(@event), method: :delete %></p>
@@ -54,12 +56,12 @@
     <div class="location-show-card">
       <strong>Location: <%= @event.location %></strong>
     </div>
-  <div
-    id="map"
-    style="width: 100%;
-    height: 300px;"
-    data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX'] %>"></div>
-  <% end %>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 300px;"
+      data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX'] %>"></div>
+    <% end %>
   </div>
 </div>
