@@ -11,7 +11,7 @@
     <div class="container-fluid main-container">
         <% if !@my_events.nil? %>
             <div class="cardbox">
-          <% @my_events.each do |event| %>
+            <% @my_events.each do |event| %>
               <div class="card">
                 <% if event.photo.attached? %>
                   <div class="thumb"><%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %></div>
@@ -70,3 +70,5 @@
 
   </div>
 </div>
+
+

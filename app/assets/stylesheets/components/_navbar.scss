@@ -21,6 +21,17 @@
   width: 100px;
 }
 
+.navbar-nav {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.avatar {
+  display: flex;
+  margin-left: 8px;
+  justify-content: flex-end;
+}
+
 .navbar-light .navbar-nav .active > .nav-link {
   color: white;
 }
