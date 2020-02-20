@@ -1,18 +1,28 @@
 <div class="container-fluid main-container">
+  <div class="category">
+    <h1>THE<br>PLAYGROUND</h1>
+  </div>
     <% if !@events.nil? %>
         <div class="cardbox">
       <% @events.each do |event| %>
+      <% attendances = Attendance.find_by(event_id: event.id) %>
           <div class="card">
-            <%= link_to "", event_attendances_path(event), class: "fas fa-user-plus", method: :post if Attendance.find_by(event_id: event.id).nil? && event.user_id != current_user.id %>
+            <% if Attendance.where(event_id: event.id, user_id: current_user.id).empty? && event.user != current_user %>
+            <%= link_to "", event_attendances_path(event), class: "far fa-calendar-plus fa-2x text-dark", method: :post%>
+            <% else %>
+              <i class="far fa-calendar-check fa-2x text-dark"></i>
+            <% end %>
             <% if event.photo.attached? %>
-              <div class="thumb"><%= cl_image_tag event.photo.key, height: 150, width: 150, crop: :fill %></div>
+              <div class="thumb"><%= cl_image_tag event.photo.key, crop: :fit %></div>
               <% else %>
                 <div class="thumb"><img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" /></div>
               <%end%>
                 <a href="<%= event_path(event) %>" style="text-decoration: none"><div class="infos">
                 <h2 class="title"><%= event.name %></h2>
                 <h3 class="date"><%= event.date.nil? ? "Date not specifed" : event.date.to_formatted_s(:short) %></h3>
-                <p class="txt"><%= event.description %></p>
+                <h3 class="seats"><strong><%= attendances.nil? ? 'Be the first to join' :
+                   "Seats remaining: #{event.capacity - Attendance.where(event_id: event.id).count}" %></strong></h3>
+                <p class="txt"><%= event.description.length <= 150 ? event.description : "#{event.description[0..130]}..." %></p>
                   <% if User.find(event.user_id).photo.attached? %>
                     <%= cl_image_tag User.find(event.user_id).photo.key, class: :"flag avatar-bordered" %>
                   <% else %>

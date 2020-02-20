@@ -1,6 +1,6 @@
 .cardbox {
   margin-top: 300px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-content: center;
   display: flex;
   flex-wrap: wrap;
@@ -74,7 +74,8 @@ $flag:'#{$host}flag.png';
   .thumb img{
     @include size(100%, $thumb-height);
     // background: url($new-york-city) no-repeat center;
-    background-size:cover;
+    object-fit: cover;
+    object-position: center;
     border-radius:$border-radius;
   }
   .infos {
@@ -94,7 +95,7 @@ $flag:'#{$host}flag.png';
       text-shadow: 0 0 0px lighten($big-stone, 20);
     }
     .flag {
-      @include pos(absolute, $top:50%, $right: 0);
+      @include pos(absolute, $top:40%, $right: 0);
       transform:translateY(-50%);
       @include size(60px, 60px);
       background: no-repeat top right;
@@ -125,8 +126,8 @@ $flag:'#{$host}flag.png';
       transition:$timing-2 $transition;
     }
     .details {
-      @include pos(absolute, $left:0, $bottom:0);
-      margin: 10px 0;
+      @include pos(absolute, $left:0, $bottom:10px);
+      margin: 10px 10px;
       padding:20px 24px;
       letter-spacing: 1px;
       color:$smalt-blue;
@@ -143,5 +144,24 @@ $flag:'#{$host}flag.png';
     .seats, .txt, .details {
       opacity:1;
     }
+  }
+}
+@import url('https://fonts.googleapis.com/css?family=Advent+Pro&display=swap');
+.category {
+  display: flex;
+  background:  linear-gradient(to bottom, transparent, white), url('https://images.squarespace-cdn.com/content/v1/5516df24e4b01178dd821724/1436737607498-L67YANQKFQNKK7IS1NNW/ke17ZwdGBToddI8pDm48kG4VaGK2BDoypcV72v3WXxkUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcQ7p8169p8qxgXVKEB23rQXgFGdd18FgKgV2HQBaPNGG3yBSUmSgz7kzVX4TWod5R/soccerbanner.jpg?format=2500w') no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 300px;
+  padding: 0;
+  margin-top: 120px;
+  justify-content: center;
+  align-content: center;
+  h1{
+    text-align: center;
+    margin-top: 10vh;
+    font-size: 64px;
+    font-family: 'Advent Pro', sans-serif;
   }
 }

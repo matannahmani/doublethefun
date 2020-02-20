@@ -4,7 +4,7 @@
     <%= image_tag "football-beer", height: 90 %>
   <% end %>
     <% if user_signed_in? %>
-    <%= form_tag events_path, class: 'd-sm-inline-flex', method: :get do %>
+    <%= form_tag events_path, class: 'd-sm-inline-flex ml-6', method: :get do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
