@@ -138,3 +138,13 @@
 .location-show-card{
   text-align: center;
 }
+.members{
+  overflow: scroll;
+}
+.members ul,.members i {
+  display: inline-flex;
+    img {
+      width:30px;
+      height:30px;
+    }
+  }
