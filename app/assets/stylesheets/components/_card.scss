@@ -93,6 +93,7 @@ $flag:'#{$host}flag.png';
       font-size: 1rem;
       text-transform: uppercase;
       text-shadow: 0 0 0px lighten($big-stone, 20);
+      line-height: 1.4;
     }
     .flag {
       @include pos(absolute, $top:25%, $right: 0);
