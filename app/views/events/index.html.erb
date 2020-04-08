@@ -22,7 +22,7 @@
                 <h3 class="date"><%= event.date.nil? ? "Date not specifed" : event.date.to_formatted_s(:short) %></h3>
                 <h3 class="seats"><strong><%= attendances.nil? ? 'Be the first to join' :
                    "Seats remaining: #{event.capacity - Attendance.where(event_id: event.id).count}" %></strong></h3>
-                <p class="txt"><%= event.description.length <= 150 ? event.description : "#{event.description[0..130]}..." %></p>
+                <p class="txt"><%= event.description.length <= 55 ? event.description : "#{event.description[0..55]}..." %></p>
                   <% if User.find(event.user_id).photo.attached? %>
                     <%= cl_image_tag User.find(event.user_id).photo.key, class: :"flag avatar-bordered" %>
                   <% else %>
