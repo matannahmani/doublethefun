@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :detect_device_variant
   include Pundit
 
 
@@ -28,5 +29,9 @@ class ApplicationController < ActionController::Base
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+  end
+
+  def detect_device_variant
+    request.variant = :phone if browser.device.mobile?
   end
 end

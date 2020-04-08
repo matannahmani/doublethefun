@@ -36,3 +36,5 @@ end
 gem "devise", "~> 4.7"
 
 gem "cloudinary", "~> 1.13"
+
+gem "browser", "~> 4.0"

@@ -12,3 +12,8 @@
 @import "video";
 @import "banner";
 @import "button";
+@import "scrollbar";
+
+html, body {
+  height: 100%;
+}
