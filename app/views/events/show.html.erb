@@ -22,7 +22,11 @@
             <% if counter < 5 %>
             <i>
               <span><%= attendance.user.first_name %></span>
-              <%= cl_image_tag(attendance.user.photo.key) if attendance.user.photo.attached? %>
+              <% if attendance.user.photo.attached? %>
+                <%= cl_image_tag(attendance.user.photo.key) %>
+              <% else %>
+                <img src="https://kpms-pr.eu/wp-content/uploads/2013/10/unknown-person.png" alt="unkown person">
+              <% end %>
             </i>
             <% counter+=1; %>
             <% end %>

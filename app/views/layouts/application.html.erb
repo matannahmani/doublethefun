@@ -10,18 +10,20 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <div class="page-wrap">
     <%= render "shared/navbar" %>
-    <%= yield %>
+      <%= yield %>
 
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
-    <%= javascript_include_tag 'application' %>
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <%= javascript_include_tag 'application' %>
 
-    <%= javascript_pack_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
+    </div>
     <%= render "shared/footer" %>
 
   </body>

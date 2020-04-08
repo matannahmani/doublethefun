@@ -1,12 +1,10 @@
 .cardbox {
-  margin-top: 300px;
-  justify-content: space-around;
+  margin-top: 200px;
+  justify-content: center;
   align-content: center;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  padding-left: 25%;
-  // padding-right: 25%;
 }
 $host:'https://s3-us-west-2.amazonaws.com/s.cdpn.io/397014/';
 @font-face {
@@ -30,8 +28,8 @@ $maroon-flush:#C32361;
 $black:#000;
 $lite-grey:rgba($black, .2);
 $lite-big-stone:rgba($big-stone, .7);
-$card-width:350px;
-$card-height:350px;
+$card-width:300px;
+$card-height:300px;
 $thumb-height:260px;
 $border-radius:3px;
 $box-shadow:0 1px 4px rgba($black, .3);
@@ -70,6 +68,8 @@ $flag:'#{$host}flag.png';
   transform:translate(-50%, -50%) translateZ(0);
   border-radius:$border-radius;
   box-shadow:$box-shadow;
+  position: relative;
+  left: 15%;
   overflow:hidden;
   .thumb img{
     @include size(100%, $thumb-height);
@@ -167,5 +167,26 @@ $flag:'#{$host}flag.png';
     margin-top: 16vh;
     font-size: 64px;
     font-family: 'Advent Pro', sans-serif;
+  }
+}
+@media only screen and (min-width: 360px) and (max-width: 375px) {
+  .card {
+    left: 45%;
+  }
+  .edit_event {
+    margin-right: 15%;
+  }
+}
+@media only screen and (min-width: 380px) and (max-width: 600px) {
+  .card {
+    left: 40%;
+  }
+  .edit_event {
+    margin-right: 15%;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 800px) {
+  .card {
+    left: 23%;
   }
 }

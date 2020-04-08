@@ -3,44 +3,30 @@
   <%= link_to events_path, class: "navbar-brand" do %>
     <%= image_tag "football-beer", height: 90 %>
   <% end %>
-    <% if user_signed_in? %>
-    <%= form_tag events_path, class: 'd-sm-inline-flex ml-6', method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find an event"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-  <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
+      <li class="nav-item active">
+            <%= form_tag events_path, class: 'd-sm-inline-flex d-flex ml-6', method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Find an event"
+            %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </li>
       <li class="nav-item active" id="item">
         <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
       </li>
       <li class="nav-item active" id="item">
         <%= link_to "Add Event", new_event_path, class: "nav-link" %>
       </li>
-       <li class="nav-item dropdown">
-          <% if !current_user.nil? %>
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, height: 60, width: 50, crop: :fill, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false  %>
-          <% else %>
-            <%= image_tag "https://source.unsplash.com/60x50", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-          <% end %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/events">All events</a>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-        </div>
+      <li class="nav-item active" id="item">
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link" %>
       </li>
-      <li class="nav-item" id="avatar-nav">
-      </li>
-      <% end %>
     </ul>
   </div>
 </div>
